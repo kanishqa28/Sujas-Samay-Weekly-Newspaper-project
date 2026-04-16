@@ -1,0 +1,2511 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>सुजस समय – Weekly News Network</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --orange: #f47b20;
+        --orange-dark: #d96a10;
+        --orange-light: #fff3e8;
+        --orange-glow: rgba(244, 123, 32, 0.15);
+        --ink: #111827;
+        --ink-soft: #374151;
+        --ink-muted: #6b7280;
+        --cream: #fdfaf6;
+        --white: #ffffff;
+        --dark: #0f0f0f;
+        --dark-card: #1a1a1a;
+        --gold: #f5c842;
+      }
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        color: var(--ink);
+        overflow-x: hidden;
+      }
+
+      /* ── TOP BAR ── */
+      .topbar {
+        background: var(--orange);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 48px;
+      }
+      .topbar-links {
+        display: flex;
+        gap: 24px;
+      }
+      .topbar-links a {
+        color: #fff;
+        text-decoration: none;
+        opacity: 0.9;
+        transition: opacity 0.2s;
+      }
+      .topbar-links a:hover {
+        opacity: 1;
+      }
+      .topbar-right {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+      }
+      .ticker-wrap {
+        flex: 1;
+        overflow: hidden;
+        padding: 0 32px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .ticker-label {
+        background: rgba(0, 0, 0, 0.25);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        padding: 2px 8px;
+        border-radius: 2px;
+        white-space: nowrap;
+      }
+      .ticker-text {
+        color: #fff;
+        white-space: nowrap;
+        animation: ticker 30s linear infinite;
+        display: inline-block;
+      }
+      @keyframes ticker {
+        0% {
+          transform: translateX(100vw);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      /* ── HEADER ── */
+      header {
+        background: #fff;
+        border-bottom: 2px solid var(--orange-light);
+        padding: 16px 48px;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+      }
+      .logo-wrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo-icon {
+        width: 52px;
+        height: 52px;
+        background: var(--orange);
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: "Noto Sans Devanagari", sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.3;
+        box-shadow: 0 4px 12px rgba(244, 123, 32, 0.4);
+      }
+      .logo-text-wrap {
+        display: flex;
+        flex-direction: column;
+      }
+      .logo-hindi {
+        font-family: "Noto Sans Devanagari", sans-serif;
+        font-size: 26px;
+        font-weight: 900;
+        color: var(--orange);
+        line-height: 1;
+      }
+      .logo-sub {
+        font-size: 9px;
+        letter-spacing: 0.18em;
+        color: var(--ink-muted);
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+      .search-bar {
+        flex: 1;
+        background: var(--cream);
+        border: 1.5px solid #e5e7eb;
+        border-radius: 50px;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        color: var(--ink-muted);
+        cursor: text;
+        transition: border-color 0.2s;
+      }
+      .search-bar:hover {
+        border-color: var(--orange);
+      }
+      .search-bar input {
+        border: none;
+        background: transparent;
+        flex: 1;
+        font-family: "DM Sans", sans-serif;
+        font-size: 14px;
+        color: var(--ink);
+        outline: none;
+      }
+      .search-bar input::placeholder {
+        color: var(--ink-muted);
+      }
+      .hindi-btn {
+        background: var(--orange);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 15px;
+        font-family: "Noto Sans Devanagari", sans-serif;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.1s;
+        box-shadow: 0 4px 12px rgba(244, 123, 32, 0.3);
+      }
+      .hindi-btn:hover {
+        background: var(--orange-dark);
+        transform: translateY(-1px);
+      }
+
+      /* ── NAV ── */
+      nav {
+        background: #fff;
+        border-bottom: 1px solid #f3f4f6;
+        padding: 0 48px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        position: sticky;
+        top: 84px;
+        z-index: 190;
+      }
+      .nav-item {
+        padding: 14px 18px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink-soft);
+        cursor: pointer;
+        text-decoration: none;
+        border-radius: 6px;
+        transition:
+          color 0.2s,
+          background 0.2s;
+        position: relative;
+        white-space: nowrap;
+      }
+      .nav-item:hover {
+        color: var(--orange);
+        background: var(--orange-glow);
+      }
+      .nav-item.active {
+        background: var(--orange);
+        color: #fff;
+        border-radius: 50px;
+      }
+      .nav-item.active:hover {
+        background: var(--orange-dark);
+        color: #fff;
+      }
+
+      /* dropdown */
+      .has-dropdown {
+        position: relative;
+      }
+      .has-dropdown .dropdown {
+        display: none;
+        position: absolute;
+        top: calc(100% + 4px);
+        left: 0;
+        background: #fff;
+        border: 1.5px solid #f3f4f6;
+        border-radius: 14px;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+        min-width: 220px;
+        padding: 10px;
+        z-index: 300;
+        animation: dropIn 0.2s ease;
+      }
+      @keyframes dropIn {
+        from {
+          opacity: 0;
+          transform: translateY(-8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .has-dropdown:hover .dropdown {
+        display: block;
+      }
+      .dropdown a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink-soft);
+        text-decoration: none;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .dropdown a:hover {
+        background: var(--orange-glow);
+        color: var(--orange);
+      }
+      .dropdown-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--orange);
+        flex-shrink: 0;
+      }
+      .dropdown-divider {
+        height: 1px;
+        background: #f3f4f6;
+        margin: 6px 0;
+      }
+
+      /* ── PAGE SECTIONS ── */
+      .page {
+        display: none;
+      }
+      .page.active {
+        display: block;
+      }
+
+      /* ── HOME ── */
+      .home-hero {
+        background: linear-gradient(
+          135deg,
+          #fff8f0 0%,
+          #fff3e2 50%,
+          #fdfaf6 100%
+        );
+        padding: 48px 48px 40px;
+        position: relative;
+        overflow: hidden;
+      }
+      .home-hero::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle,
+          rgba(244, 123, 32, 0.12) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+      .hero-tags {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+      }
+      .tag {
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .tag-outline {
+        border: 1.5px solid var(--orange);
+        color: var(--orange);
+        background: transparent;
+      }
+      .tag-outline:hover {
+        background: var(--orange);
+        color: #fff;
+      }
+      .tag-fill {
+        background: var(--orange);
+        color: #fff;
+        border: 1.5px solid var(--orange);
+      }
+      .breaking-bar {
+        background: linear-gradient(
+          90deg,
+          var(--orange-dark),
+          var(--orange),
+          #ffa040
+        );
+        border-radius: 50px;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 24px;
+        overflow: hidden;
+      }
+      .breaking-label {
+        background: rgba(255, 255, 255, 0.25);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        padding: 4px 10px;
+        border-radius: 50px;
+        white-space: nowrap;
+      }
+      .breaking-text {
+        color: #fff;
+        font-size: 13px;
+        font-weight: 500;
+        white-space: nowrap;
+        animation: ticker 25s linear infinite;
+        display: inline-block;
+      }
+      .hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(32px, 4vw, 52px);
+        font-weight: 900;
+        color: var(--ink);
+        line-height: 1.1;
+        margin-bottom: 16px;
+        max-width: 700px;
+      }
+      .hero-title span {
+        color: var(--orange);
+      }
+      .hero-desc {
+        font-size: 16px;
+        color: var(--ink-muted);
+        max-width: 560px;
+        line-height: 1.7;
+        margin-bottom: 28px;
+      }
+      .hero-cta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background: var(--orange);
+        color: #fff;
+        padding: 12px 28px;
+        border-radius: 50px;
+        border: none;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 6px 20px rgba(244, 123, 32, 0.35);
+        transition: all 0.2s;
+      }
+      .btn-primary:hover {
+        background: var(--orange-dark);
+        transform: translateY(-2px);
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--orange);
+        padding: 12px 28px;
+        border-radius: 50px;
+        border: 2px solid var(--orange);
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .btn-outline:hover {
+        background: var(--orange);
+        color: #fff;
+      }
+
+      /* news grid */
+      .section {
+        padding: 40px 48px;
+      }
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 24px;
+        border-bottom: 2px solid var(--orange-light);
+        padding-bottom: 12px;
+      }
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title::before {
+        content: "";
+        width: 4px;
+        height: 24px;
+        background: var(--orange);
+        border-radius: 2px;
+        display: inline-block;
+      }
+      .section-link {
+        color: var(--orange);
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .section-link:hover {
+        text-decoration: underline;
+      }
+
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 24px;
+      }
+      .news-card {
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+        cursor: pointer;
+      }
+      .news-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+      }
+      .card-img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        background: linear-gradient(135deg, #f3e8ff, #fef3c7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+        color: #ccc;
+        position: relative;
+      }
+      .card-img-placeholder {
+        width: 100%;
+        aspect-ratio: 16/9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+      }
+      .card-body {
+        padding: 18px;
+      }
+      .card-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .card-cat {
+        background: var(--orange);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        padding: 3px 10px;
+        border-radius: 50px;
+      }
+      .card-time {
+        font-size: 11px;
+        color: var(--ink-muted);
+      }
+      .card-title {
+        font-family: "Playfair Display", serif;
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.4;
+        margin-bottom: 8px;
+      }
+      .card-excerpt {
+        font-size: 13px;
+        color: var(--ink-muted);
+        line-height: 1.6;
+      }
+      .card-footer {
+        padding: 10px 18px 16px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .card-tag {
+        background: var(--orange-light);
+        color: var(--orange);
+        font-size: 10px;
+        font-weight: 600;
+        padding: 3px 10px;
+        border-radius: 50px;
+      }
+
+      /* featured big card */
+      .featured-card {
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 32px;
+        cursor: pointer;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .featured-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+      }
+      .featured-img {
+        aspect-ratio: auto;
+        min-height: 280px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 80px;
+      }
+      .featured-body {
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .featured-label {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        color: var(--orange);
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      .featured-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(20px, 2.5vw, 28px);
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.3;
+        margin-bottom: 12px;
+      }
+      .featured-desc {
+        font-size: 14px;
+        color: var(--ink-muted);
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+      .read-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--orange);
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .read-btn:hover {
+        text-decoration: underline;
+      }
+
+      /* category pills */
+      .cat-pills {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 28px;
+      }
+      .cat-pill {
+        padding: 8px 18px;
+        border-radius: 50px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        border: 1.5px solid #e5e7eb;
+        color: var(--ink-soft);
+        background: #fff;
+        transition: all 0.2s;
+      }
+      .cat-pill:hover,
+      .cat-pill.active {
+        background: var(--orange);
+        color: #fff;
+        border-color: var(--orange);
+      }
+
+      /* ── E-PAPER PAGE ── */
+      .epaper-hero {
+        background: linear-gradient(135deg, #fff8f0, #fff3e2);
+        padding: 48px;
+      }
+      .epaper-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: start;
+      }
+      .epaper-cover {
+        background: #fff;
+        border: 2px solid var(--orange-light);
+        border-radius: 20px;
+        padding: 32px;
+        box-shadow: 0 8px 32px rgba(244, 123, 32, 0.1);
+      }
+      .cover-label {
+        background: var(--orange-light);
+        color: var(--orange);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        padding: 4px 12px;
+        border-radius: 50px;
+        display: inline-block;
+        margin-bottom: 16px;
+      }
+      .cover-title {
+        font-family: "Noto Sans Devanagari", sans-serif;
+        font-size: clamp(20px, 2.5vw, 26px);
+        font-weight: 900;
+        color: var(--ink);
+        line-height: 1.3;
+        margin-bottom: 16px;
+      }
+      .cover-title em {
+        font-style: normal;
+        font-family: "Playfair Display", serif;
+      }
+      .sections-panel {
+        background: #fff;
+        border-radius: 20px;
+        padding: 28px;
+      }
+      .sections-title {
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+      .section-item {
+        padding: 14px 16px;
+        border-radius: 10px;
+        border: 1.5px solid #f3f4f6;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink-soft);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .section-item:hover {
+        border-color: var(--orange);
+        color: var(--orange);
+        background: var(--orange-glow);
+      }
+      .section-arrow {
+        color: var(--orange-dark);
+        font-size: 16px;
+      }
+
+      /* ── UPLOAD PAGE ── */
+      .upload-hero {
+        padding: 48px;
+        background: linear-gradient(135deg, #fff8f0, #fdfaf6);
+      }
+      .upload-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+      .upload-type {
+        background: #fff;
+        border: 2px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 24px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .upload-type:hover,
+      .upload-type.active {
+        border-color: var(--orange);
+        background: var(--orange-glow);
+      }
+      .upload-icon {
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+      .upload-type-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .form-input {
+        padding: 14px 16px;
+        border: 1.5px solid #e5e7eb;
+        border-radius: 12px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 14px;
+        color: var(--ink);
+        background: #fff;
+        transition: border-color 0.2s;
+        outline: none;
+      }
+      .form-input:focus {
+        border-color: var(--orange);
+      }
+      .form-input::placeholder {
+        color: var(--ink-muted);
+      }
+      .form-full {
+        grid-column: 1 / -1;
+      }
+      textarea.form-input {
+        resize: vertical;
+        min-height: 120px;
+      }
+      .form-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 32px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        margin: 0 48px 48px;
+      }
+
+      /* ── CONTACT PAGE ── */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        margin: 0 48px 48px;
+      }
+      .contact-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 32px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      }
+      .contact-section-label {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        color: var(--orange);
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .contact-value {
+        font-size: 15px;
+        color: var(--ink);
+        margin-bottom: 20px;
+        line-height: 1.5;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--dark);
+        color: #ccc;
+        padding: 48px 48px 24px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+      .footer-brand .logo-hindi {
+        color: var(--orange);
+      }
+      .footer-brand .logo-sub {
+        color: #666;
+      }
+      .footer-tagline {
+        font-size: 13px;
+        color: #888;
+        margin-top: 12px;
+        line-height: 1.6;
+      }
+      .footer-col-title {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        color: var(--orange);
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .footer-links a {
+        color: #aaa;
+        font-size: 13px;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--orange);
+      }
+      .footer-contact-item {
+        font-size: 13px;
+        color: #aaa;
+        margin-bottom: 8px;
+      }
+      .footer-bottom {
+        border-top: 1px solid #222;
+        padding-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        color: #666;
+      }
+      .footer-bottom-links {
+        display: flex;
+        gap: 16px;
+      }
+      .footer-bottom-links a {
+        color: #666;
+        text-decoration: none;
+      }
+      .footer-bottom-links a:hover {
+        color: var(--orange);
+      }
+
+      /* ── HIGHLIGHT ARTICLE PAGE ── */
+      .highlight-list {
+        padding: 0 48px 48px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .highlight-item {
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .highlight-item:hover {
+        transform: translateX(4px);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+      }
+      .highlight-num {
+        background: var(--orange);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Playfair Display", serif;
+        font-size: 36px;
+        font-weight: 900;
+      }
+      .highlight-body {
+        padding: 20px 24px;
+      }
+      .highlight-title {
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+      .highlight-desc {
+        font-size: 13px;
+        color: var(--ink-muted);
+        line-height: 1.6;
+      }
+
+      /* ── CATEGORIES PAGE ── */
+      .categories-page {
+        padding: 0 48px 48px;
+      }
+      .cat-header {
+        padding: 40px 0 24px;
+      }
+      .cat-mega-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-bottom: 36px;
+      }
+      .cat-mega-card {
+        border-radius: 16px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.25s;
+        position: relative;
+        min-height: 140px;
+        display: flex;
+        align-items: flex-end;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      }
+      .cat-mega-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+      }
+      .cat-mega-bg {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 56px;
+      }
+      .cat-mega-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.75) 0%,
+          transparent 60%
+        );
+      }
+      .cat-mega-info {
+        position: relative;
+        padding: 16px 20px;
+      }
+      .cat-mega-name {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .cat-mega-count {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 11px;
+        margin-top: 2px;
+      }
+
+      /* page header */
+      .page-header {
+        padding: 40px 48px 24px;
+        border-bottom: 2px solid var(--orange-light);
+        margin-bottom: 32px;
+      }
+      .page-header-label {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        color: var(--orange);
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      .page-header-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(28px, 3.5vw, 40px);
+        font-weight: 900;
+        color: var(--ink);
+        margin-bottom: 8px;
+      }
+      .page-header-desc {
+        font-size: 15px;
+        color: var(--ink-muted);
+        max-width: 600px;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 768px) {
+        .topbar,
+        header,
+        nav {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .section,
+        .epaper-hero,
+        .upload-hero,
+        .page-header {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .contact-grid,
+        .form-card,
+        .highlight-list,
+        .categories-page,
+        .footer-grid {
+          margin: 0 20px 40px;
+        }
+        .epaper-grid,
+        .featured-card,
+        .contact-grid,
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .cat-mega-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .upload-grid {
+          grid-template-columns: 1fr;
+        }
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="topbar">
+      <div class="topbar-links">
+        <a href="#" onclick="showPage('epaper')">Videos</a>
+        <a href="#" onclick="showPage('epaper')">E-Paper</a>
+        <a href="#" onclick="showPage('epaper')">Weekly Edition</a>
+        <a href="#" onclick="showPage('latest')">Lucknow</a>
+      </div>
+      <div class="ticker-wrap">
+        <span class="ticker-text"
+          >Lucknow Metro Phase 2 expansion approved by cabinet &nbsp;|&nbsp;
+          State budget session begins Monday &nbsp;|&nbsp; Gomti Riverfront new
+          attractions unveiled &nbsp;|&nbsp; UP Board results to be declared
+          this week &nbsp;|&nbsp; Smart City project covers 12 new wards</span
+        >
+      </div>
+      <div class="topbar-right">
+        <span id="live-clock"></span>
+      </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+      <div class="logo-wrap">
+        <div class="logo-icon">
+          <span style="font-size: 7px; opacity: 0.8">लखनऊ</span>
+          <span>पत्र</span>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-hindi">सुजस समय</span>
+          <span class="logo-sub">Weekly News Network</span>
+        </div>
+      </div>
+      <div class="search-bar">
+        <span>🔍</span>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search home..."
+          onkeydown="handleSearch(event)"
+        />
+      </div>
+      <button class="hindi-btn" onclick="toggleLanguage()">हिंदी</button>
+    </header>
+
+    <!-- NAV -->
+    <nav>
+      <a
+        class="nav-item active"
+        id="nav-home"
+        onclick="showPage('home')"
+        data-translate="Home"
+        >Home</a
+      >
+      <a
+        class="nav-item"
+        id="nav-latest"
+        onclick="showPage('latest')"
+        data-translate="Latest News"
+        >Latest News</a
+      >
+
+      <div class="has-dropdown">
+        <a
+          class="nav-item"
+          id="nav-categories"
+          onclick="showPage('categories')"
+          data-translate="Categories ▾"
+          >Categories ▾</a
+        >
+        <div class="dropdown">
+          <a href="#" onclick="filterCategory('Lucknow')"
+            ><span class="dropdown-dot"></span> Lucknow</a
+          >
+          <a href="#" onclick="filterCategory('Politics')"
+            ><span class="dropdown-dot" style="background: #e53e3e"></span>
+            Politics</a
+          >
+          <a href="#" onclick="filterCategory('City')"
+            ><span class="dropdown-dot" style="background: #38a169"></span>
+            City</a
+          >
+          <a href="#" onclick="filterCategory('Business')"
+            ><span class="dropdown-dot" style="background: #3182ce"></span>
+            Business</a
+          >
+          <div class="dropdown-divider"></div>
+          <a href="#" onclick="filterCategory('Education')"
+            ><span class="dropdown-dot" style="background: #805ad5"></span>
+            Education</a
+          >
+          <a href="#" onclick="filterCategory('Sports')"
+            ><span class="dropdown-dot" style="background: #dd6b20"></span>
+            Sports</a
+          >
+          <a href="#" onclick="filterCategory('Entertainment')"
+            ><span class="dropdown-dot" style="background: #d53f8c"></span>
+            Entertainment</a
+          >
+          <a href="#" onclick="filterCategory('Technology')"
+            ><span class="dropdown-dot" style="background: #0bc5ea"></span>
+            Technology</a
+          >
+          <div class="dropdown-divider"></div>
+          <a href="#" onclick="filterCategory('Community')"
+            ><span class="dropdown-dot" style="background: #68d391"></span>
+            Community</a
+          >
+          <a href="#" onclick="filterCategory('Health')"
+            ><span class="dropdown-dot" style="background: #f6e05e"></span>
+            Health</a
+          >
+        </div>
+      </div>
+
+      <a
+        class="nav-item"
+        id="nav-epaper"
+        onclick="showPage('epaper')"
+        data-translate="E-Paper"
+        >E-Paper</a
+      >
+      <a
+        class="nav-item"
+        id="nav-highlight"
+        onclick="showPage('highlight')"
+        data-translate="Highlight Article"
+        >Highlight Article</a
+      >
+      <a
+        class="nav-item"
+        id="nav-upload"
+        onclick="showPage('upload')"
+        data-translate="Upload Content"
+        >Upload Content</a
+      >
+      <a
+        class="nav-item"
+        id="nav-contact"
+        onclick="showPage('contact')"
+        data-translate="Contact Us"
+        >Contact Us</a
+      >
+    </nav>
+
+    <!-- ══════════════ HOME PAGE ══════════════ -->
+    <div class="page active" id="page-home">
+      <div class="home-hero">
+        <div class="hero-tags">
+          <span class="tag tag-outline" data-translate="Reading from: Lucknow"
+            >Reading from: Lucknow</span
+          >
+          <span class="tag tag-fill" data-translate="Weekly Newspaper"
+            >Weekly Newspaper</span
+          >
+        </div>
+        <div class="breaking-bar">
+          <span class="breaking-label" data-translate="BREAKING NEWS"
+            >BREAKING NEWS</span
+          >
+          <span class="breaking-text"
+            >UP Cabinet approves ₹4,200 Cr smart city expansion | New flyover on
+            Kanpur Road inaugurated | Lucknow becomes India's cleanest UP city |
+            Gomti cleanup project Phase 3 begins</span
+          >
+        </div>
+        <div class="hero-tags" style="margin-bottom: 12px">
+          <span
+            class="tag tag-outline"
+            style="font-size: 11px"
+            data-translate="🏷 Highlight Article"
+            >🏷 Highlight Article</span
+          >
+        </div>
+        <h1 class="hero-title" data-translate="Lucknow This Week:">
+          Lucknow This Week:<br /><span
+            data-translate="The stories, issues, and"
+            >The stories, issues, and</span
+          ><br /><span data-translate="progress that matter most"
+            >progress that matter most</span
+          >
+        </h1>
+        <p
+          class="hero-desc"
+          data-translate="A modern weekly news experience built for readers who want clarity, credibility, and connection to the city they love."
+        >
+          A modern weekly news experience built for readers who want clarity,
+          credibility, and connection to the city they love.
+        </p>
+        <div class="hero-cta">
+          <button
+            class="btn-primary"
+            onclick="showPage('latest')"
+            data-translate="📰 Read Latest News"
+          >
+            📰 Read Latest News
+          </button>
+          <button
+            class="btn-outline"
+            onclick="showPage('epaper')"
+            data-translate="📄 View E-Paper"
+          >
+            📄 View E-Paper
+          </button>
+        </div>
+      </div>
+
+      <!-- Featured -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title" data-translate="This Week's Cover Story">
+            This Week's Cover Story
+          </div>
+          <a
+            class="section-link"
+            onclick="showPage('highlight')"
+            data-translate="View all highlights →"
+            >View all highlights →</a
+          >
+        </div>
+        <div class="featured-card">
+          <div
+            class="featured-img"
+            style="background: linear-gradient(135deg, #fff3e2, #ffe4b5)"
+          >
+            🏛️
+          </div>
+          <div class="featured-body">
+            <div class="featured-label" data-translate="Cover Story · Politics">
+              Cover Story · Politics
+            </div>
+            <h2
+              class="featured-title"
+              data-translate="Lucknow's Infrastructure Revolution: Roads, Metro & Smart Grids Transforming Urban Life"
+            >
+              Lucknow's Infrastructure Revolution: Roads, Metro & Smart Grids
+              Transforming Urban Life
+            </h2>
+            <p
+              class="featured-desc"
+              data-translate="From the bustling corridors of Hazratganj to the expanding suburban zones, Lucknow is witnessing its most ambitious urban transformation yet. Our cover story this week traces the money, the politics, and the people behind the change."
+            >
+              From the bustling corridors of Hazratganj to the expanding
+              suburban zones, Lucknow is witnessing its most ambitious urban
+              transformation yet. Our cover story this week traces the money,
+              the politics, and the people behind the change.
+            </p>
+            <span class="read-btn" data-translate="Read Full Story →"
+              >Read Full Story →</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- News grid -->
+      <div class="section" style="padding-top: 0">
+        <div class="section-header">
+          <div class="section-title" data-translate="Latest from Lucknow">
+            Latest from Lucknow
+          </div>
+          <a
+            class="section-link"
+            onclick="showPage('latest')"
+            data-translate="See all news →"
+            >See all news →</a
+          >
+        </div>
+        <div class="news-grid" id="homeGrid"></div>
+      </div>
+    </div>
+
+    <!-- ══════════════ LATEST NEWS PAGE ══════════════ -->
+    <div class="page" id="page-latest">
+      <div class="page-header">
+        <div class="page-header-label" data-translate="Latest News">
+          Latest News
+        </div>
+        <h1 class="page-header-title" data-translate="Weekly News Feed">
+          Weekly News Feed
+        </h1>
+        <p
+          class="page-header-desc"
+          data-translate="A dedicated page connected to the main website layout for browsing category-based news stories."
+        >
+          A dedicated page connected to the main website layout for browsing
+          category-based news stories.
+        </p>
+      </div>
+      <div class="section" style="padding-top: 0">
+        <div class="cat-pills" id="latestPills">
+          <span
+            class="cat-pill active"
+            onclick="filterLatest('All', this)"
+            data-translate="All"
+            >All</span
+          >
+          <span
+            class="cat-pill"
+            onclick="filterLatest('Lucknow', this)"
+            data-translate="Lucknow"
+            >Lucknow</span
+          >
+          <span
+            class="cat-pill"
+            onclick="filterLatest('Politics', this)"
+            data-translate="Politics"
+            >Politics</span
+          >
+          <span
+            class="cat-pill"
+            onclick="filterLatest('City', this)"
+            data-translate="City"
+            >City</span
+          >
+          <span
+            class="cat-pill"
+            onclick="filterLatest('Business', this)"
+            data-translate="Business"
+            >Business</span
+          >
+          <span
+            class="cat-pill"
+            onclick="filterLatest('Education', this)"
+            data-translate="Education"
+            >Education</span
+          >
+          <span
+            class="cat-pill"
+            onclick="filterLatest('Sports', this)"
+            data-translate="Sports"
+            >Sports</span
+          >
+          <span
+            class="cat-pill"
+            onclick="filterLatest('Entertainment', this)"
+            data-translate="Entertainment"
+            >Entertainment</span
+          >
+          <span
+            class="cat-pill"
+            onclick="filterLatest('Technology', this)"
+            data-translate="Technology"
+            >Technology</span
+          >
+          <span
+            class="cat-pill"
+            onclick="filterLatest('Community', this)"
+            data-translate="Community"
+            >Community</span
+          >
+        </div>
+        <div class="news-grid" id="latestGrid"></div>
+      </div>
+    </div>
+
+    <!-- ══════════════ CATEGORIES PAGE ══════════════ -->
+    <div class="page" id="page-categories">
+      <div class="page-header">
+        <div class="page-header-label" data-translate="Browse by Category">
+          Browse by Category
+        </div>
+        <h1 class="page-header-title" data-translate="News Categories">
+          News Categories
+        </h1>
+        <p
+          class="page-header-desc"
+          data-translate="Explore stories organised by topic. Click any category to read curated weekly coverage."
+        >
+          Explore stories organised by topic. Click any category to read curated
+          weekly coverage.
+        </p>
+      </div>
+      <div class="categories-page">
+        <div class="cat-mega-grid">
+          <div
+            class="cat-mega-card"
+            onclick="filterCategory('Lucknow')"
+            style="background: #fff3e2"
+          >
+            <div class="cat-mega-bg">🏙️</div>
+            <div class="cat-mega-overlay"></div>
+            <div class="cat-mega-info">
+              <div class="cat-mega-name" data-translate="Lucknow">Lucknow</div>
+              <div class="cat-mega-count" data-translate="12 stories this week">
+                12 stories this week
+              </div>
+            </div>
+          </div>
+          <div
+            class="cat-mega-card"
+            onclick="filterCategory('Politics')"
+            style="background: #fff5f5"
+          >
+            <div class="cat-mega-bg">🏛️</div>
+            <div class="cat-mega-overlay"></div>
+            <div class="cat-mega-info">
+              <div class="cat-mega-name" data-translate="Politics">
+                Politics
+              </div>
+              <div class="cat-mega-count" data-translate="9 stories this week">
+                9 stories this week
+              </div>
+            </div>
+          </div>
+          <div
+            class="cat-mega-card"
+            onclick="filterCategory('City')"
+            style="background: #f0fff4"
+          >
+            <div class="cat-mega-bg">🌆</div>
+            <div class="cat-mega-overlay"></div>
+            <div class="cat-mega-info">
+              <div class="cat-mega-name" data-translate="City">City</div>
+              <div class="cat-mega-count" data-translate="8 stories this week">
+                8 stories this week
+              </div>
+            </div>
+          </div>
+          <div
+            class="cat-mega-card"
+            onclick="filterCategory('Business')"
+            style="background: #ebf8ff"
+          >
+            <div class="cat-mega-bg">💼</div>
+            <div class="cat-mega-overlay"></div>
+            <div class="cat-mega-info">
+              <div class="cat-mega-name">Business</div>
+              <div class="cat-mega-count">7 stories this week</div>
+            </div>
+          </div>
+          <div
+            class="cat-mega-card"
+            onclick="filterCategory('Education')"
+            style="background: #faf5ff"
+          >
+            <div class="cat-mega-bg">📚</div>
+            <div class="cat-mega-overlay"></div>
+            <div class="cat-mega-info">
+              <div class="cat-mega-name">Education</div>
+              <div class="cat-mega-count">6 stories this week</div>
+            </div>
+          </div>
+          <div
+            class="cat-mega-card"
+            onclick="filterCategory('Sports')"
+            style="background: #fffaf0"
+          >
+            <div class="cat-mega-bg">🏆</div>
+            <div class="cat-mega-overlay"></div>
+            <div class="cat-mega-info">
+              <div class="cat-mega-name">Sports</div>
+              <div class="cat-mega-count">5 stories this week</div>
+            </div>
+          </div>
+          <div
+            class="cat-mega-card"
+            onclick="filterCategory('Entertainment')"
+            style="background: #fff5f7"
+          >
+            <div class="cat-mega-bg">🎭</div>
+            <div class="cat-mega-overlay"></div>
+            <div class="cat-mega-info">
+              <div class="cat-mega-name">Entertainment</div>
+              <div class="cat-mega-count">4 stories this week</div>
+            </div>
+          </div>
+          <div
+            class="cat-mega-card"
+            onclick="filterCategory('Technology')"
+            style="background: #e6fffa"
+          >
+            <div class="cat-mega-bg">💻</div>
+            <div class="cat-mega-overlay"></div>
+            <div class="cat-mega-info">
+              <div class="cat-mega-name">Technology</div>
+              <div class="cat-mega-count">5 stories this week</div>
+            </div>
+          </div>
+          <div
+            class="cat-mega-card"
+            onclick="filterCategory('Community')"
+            style="background: #f0fff4"
+          >
+            <div class="cat-mega-bg">🤝</div>
+            <div class="cat-mega-overlay"></div>
+            <div class="cat-mega-info">
+              <div class="cat-mega-name">Community</div>
+              <div class="cat-mega-count">6 stories this week</div>
+            </div>
+          </div>
+        </div>
+        <div class="section-header">
+          <div class="section-title" id="catFilterTitle">All Stories</div>
+        </div>
+        <div class="news-grid" id="catGrid"></div>
+      </div>
+    </div>
+
+    <!-- ══════════════ E-PAPER PAGE ══════════════ -->
+    <div class="page" id="page-epaper">
+      <div class="page-header">
+        <div class="page-header-label">E-Paper</div>
+        <h1 class="page-header-title">Digital Weekly Edition</h1>
+        <p class="page-header-desc">
+          A connected page for the weekly newspaper edition, archives, featured
+          cover story, and reading options.
+        </p>
+      </div>
+      <div class="epaper-hero">
+        <div class="epaper-grid">
+          <div class="epaper-cover">
+            <span class="cover-label">This Week's Cover</span>
+            <div class="cover-title">
+              सुजल समय <em>Weekly Edition</em> – Lucknow Special Issue
+            </div>
+            <p
+              style="
+                font-size: 14px;
+                color: var(--ink-muted);
+                line-height: 1.7;
+                margin-bottom: 20px;
+              "
+            >
+              A premium e-paper experience with cover story highlights,
+              editorial notes, city roundups, public affairs, and curated
+              category sections.
+            </p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap">
+              <button class="btn-primary">📖 Read Now</button>
+              <button class="btn-outline">⬇️ Download PDF</button>
+            </div>
+          </div>
+          <div class="sections-panel">
+            <div class="sections-title">Edition Sections</div>
+            <div class="section-item">
+              <span>📰 Front Page Highlights</span
+              ><span class="section-arrow">›</span>
+            </div>
+            <div class="section-item">
+              <span>🏙️ Lucknow City Report</span
+              ><span class="section-arrow">›</span>
+            </div>
+            <div class="section-item">
+              <span>💼 Business &amp; Market Review</span
+              ><span class="section-arrow">›</span>
+            </div>
+            <div class="section-item">
+              <span>🏛️ Politics and Public Affairs</span
+              ><span class="section-arrow">›</span>
+            </div>
+            <div class="section-item">
+              <span>📚 Education &amp; Youth</span
+              ><span class="section-arrow">›</span>
+            </div>
+            <div class="section-item">
+              <span>🏆 Sports Roundup</span><span class="section-arrow">›</span>
+            </div>
+            <div class="section-item">
+              <span>🎭 Entertainment &amp; Culture</span
+              ><span class="section-arrow">›</span>
+            </div>
+            <div class="section-item">
+              <span>🤝 Community Corner</span
+              ><span class="section-arrow">›</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title">Previous Editions</div>
+        </div>
+        <div class="news-grid">
+          <div class="news-card">
+            <div
+              class="card-img-placeholder"
+              style="background: linear-gradient(135deg, #fff3e2, #ffe4b5)"
+            >
+              📰
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-cat">April Week 2</span
+                ><span class="card-time">8 Apr 2026</span>
+              </div>
+              <div class="card-title">Lucknow Special: City Growth Edition</div>
+              <div class="card-excerpt">
+                Full e-paper covering metro expansion, civic projects, and
+                election updates.
+              </div>
+            </div>
+          </div>
+          <div class="news-card">
+            <div
+              class="card-img-placeholder"
+              style="background: linear-gradient(135deg, #f0fff4, #c6f6d5)"
+            >
+              📰
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-cat">April Week 1</span
+                ><span class="card-time">1 Apr 2026</span>
+              </div>
+              <div class="card-title">Budget Week: UP Financial Digest</div>
+              <div class="card-excerpt">
+                State budget analysis, market reactions, and expert commentary.
+              </div>
+            </div>
+          </div>
+          <div class="news-card">
+            <div
+              class="card-img-placeholder"
+              style="background: linear-gradient(135deg, #ebf8ff, #bee3f8)"
+            >
+              📰
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-cat">March Week 4</span
+                ><span class="card-time">25 Mar 2026</span>
+              </div>
+              <div class="card-title">Holi Special: Culture & Community</div>
+              <div class="card-excerpt">
+                Festival stories, cultural events, and community celebrations
+                across Lucknow.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════ HIGHLIGHT ARTICLE PAGE ══════════════ -->
+    <div class="page" id="page-highlight">
+      <div class="page-header">
+        <div class="page-header-label">Editor's Picks</div>
+        <h1 class="page-header-title">Highlight Articles</h1>
+        <p class="page-header-desc">
+          Carefully selected stories with in-depth reporting and lasting impact
+          for Lucknow readers.
+        </p>
+      </div>
+      <div class="highlight-list">
+        <div class="highlight-item">
+          <div class="highlight-num">01</div>
+          <div class="highlight-body">
+            <div style="display: flex; gap: 8px; margin-bottom: 8px">
+              <span class="card-cat">Politics</span
+              ><span class="card-time">15 Apr 2026</span>
+            </div>
+            <div class="highlight-title">
+              Lucknow's Infrastructure Revolution: Roads, Metro &amp; Smart
+              Grids
+            </div>
+            <div class="highlight-desc">
+              From Hazratganj to suburban zones — the most ambitious urban
+              transformation in the city's modern history. An exclusive
+              investigative report.
+            </div>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-num" style="background: #3182ce">02</div>
+          <div class="highlight-body">
+            <div style="display: flex; gap: 8px; margin-bottom: 8px">
+              <span class="card-cat" style="background: #3182ce">Business</span
+              ><span class="card-time">14 Apr 2026</span>
+            </div>
+            <div class="highlight-title">
+              Market Watch: New Openings, Trade &amp; Investment in UP's Capital
+            </div>
+            <div class="highlight-desc">
+              A comprehensive look at why Lucknow is becoming North India's next
+              major economic hub, with data from 50+ industry sources.
+            </div>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-num" style="background: #38a169">03</div>
+          <div class="highlight-body">
+            <div style="display: flex; gap: 8px; margin-bottom: 8px">
+              <span class="card-cat" style="background: #38a169">Community</span
+              ><span class="card-time">13 Apr 2026</span>
+            </div>
+            <div class="highlight-title">
+              The Gomti Revival: Citizens, Corporates &amp; Government Unite
+            </div>
+            <div class="highlight-desc">
+              How a grassroots movement grew into the city's largest-ever
+              environmental initiative, now backed by ₹800 crore in state
+              funding.
+            </div>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-num" style="background: #805ad5">04</div>
+          <div class="highlight-body">
+            <div style="display: flex; gap: 8px; margin-bottom: 8px">
+              <span class="card-cat" style="background: #805ad5">Education</span
+              ><span class="card-time">12 Apr 2026</span>
+            </div>
+            <div class="highlight-title">
+              UP Board Results 2026: What the Numbers Say About Learning Gaps
+            </div>
+            <div class="highlight-desc">
+              An in-depth analysis of pass rates, gender parity, rural vs urban
+              divides and the story of students who beat the odds.
+            </div>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-num" style="background: #dd6b20">05</div>
+          <div class="highlight-body">
+            <div style="display: flex; gap: 8px; margin-bottom: 8px">
+              <span class="card-cat" style="background: #dd6b20">Sports</span
+              ><span class="card-time">11 Apr 2026</span>
+            </div>
+            <div class="highlight-title">
+              Lucknow Super Giants: Season Preview &amp; Player Profiles
+            </div>
+            <div class="highlight-desc">
+              Everything you need to know heading into the new IPL season — form
+              guides, key battles, and the home advantage factor.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════ UPLOAD PAGE ══════════════ -->
+    <div class="page" id="page-upload">
+      <div class="page-header">
+        <div class="page-header-label">Public Submission</div>
+        <h1 class="page-header-title">Upload Content Page</h1>
+        <p class="page-header-desc">
+          Readers can submit news articles, photos, and videos for weekly
+          publication review.
+        </p>
+      </div>
+      <div class="form-card">
+        <div class="upload-grid">
+          <div class="upload-type active" onclick="selectUploadType(this)">
+            <div class="upload-icon">📝</div>
+            <div class="upload-type-name">News Article</div>
+          </div>
+          <div class="upload-type" onclick="selectUploadType(this)">
+            <div class="upload-icon">📸</div>
+            <div class="upload-type-name">Photo Story</div>
+          </div>
+          <div class="upload-type" onclick="selectUploadType(this)">
+            <div class="upload-icon">🎥</div>
+            <div class="upload-type-name">Video Content</div>
+          </div>
+        </div>
+        <div class="form-grid">
+          <input class="form-input" type="text" placeholder="Full Name" />
+          <input class="form-input" type="email" placeholder="Email Address" />
+          <input class="form-input" type="tel" placeholder="Phone Number" />
+          <input
+            class="form-input"
+            type="text"
+            placeholder="Category (e.g. Politics, City, Sports)"
+          />
+          <input
+            class="form-input form-full"
+            type="text"
+            placeholder="Article / Content Title"
+          />
+          <textarea
+            class="form-input form-full"
+            placeholder="Write your content here... (min. 200 words for articles)"
+          ></textarea>
+          <div
+            class="form-full"
+            style="
+              background: var(--orange-light);
+              border: 2px dashed var(--orange);
+              border-radius: 12px;
+              padding: 28px;
+              text-align: center;
+              cursor: pointer;
+              color: var(--orange);
+              font-weight: 500;
+            "
+          >
+            📎 Click to attach images or video files
+          </div>
+        </div>
+        <div style="margin-top: 20px; display: flex; gap: 12px">
+          <button class="btn-primary">Submit for Review →</button>
+          <button class="btn-outline">Save Draft</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════ CONTACT PAGE ══════════════ -->
+    <div class="page" id="page-contact">
+      <div class="page-header">
+        <div class="page-header-label">Contact</div>
+        <h1 class="page-header-title">Contact Us Page</h1>
+        <p class="page-header-desc">
+          Separate connected contact page for editorial office, reader queries,
+          advertising, and submission assistance.
+        </p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h2
+            style="
+              font-family: &quot;Playfair Display&quot;, serif;
+              font-size: 24px;
+              font-weight: 700;
+              margin-bottom: 24px;
+            "
+          >
+            Editorial Office
+          </h2>
+          <div class="contact-section-label">ADDRESS</div>
+          <div class="contact-value">Hazratganj, Lucknow, Uttar Pradesh</div>
+          <div class="contact-section-label">PHONE</div>
+          <div class="contact-value">+91 98765 43210</div>
+          <div class="contact-section-label">EMAIL</div>
+          <div class="contact-value">editor@sujalsamay.com</div>
+          <div class="contact-section-label">OFFICE HOURS</div>
+          <div class="contact-value">Monday – Saturday, 10:00 AM – 6:00 PM</div>
+          <div style="margin-top: 8px; display: flex; gap: 12px">
+            <button class="btn-primary">📞 Call Now</button>
+            <button class="btn-outline">✉️ Email</button>
+          </div>
+        </div>
+        <div class="contact-card">
+          <h2
+            style="
+              font-family: &quot;Playfair Display&quot;, serif;
+              font-size: 24px;
+              font-weight: 700;
+              margin-bottom: 24px;
+            "
+          >
+            Send Us a Message
+          </h2>
+          <div class="form-grid">
+            <input class="form-input" type="text" placeholder="Your Name" />
+            <input
+              class="form-input"
+              type="email"
+              placeholder="Email Address"
+            />
+            <input class="form-input" type="text" placeholder="Subject" />
+            <input class="form-input" type="tel" placeholder="Phone Number" />
+            <textarea
+              class="form-input form-full"
+              placeholder="Write your message..."
+              style="min-height: 140px"
+            ></textarea>
+          </div>
+          <button class="btn-primary" style="margin-top: 16px">
+            Send Message →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              margin-bottom: 12px;
+            "
+          >
+            <div
+              class="logo-icon"
+              style="width: 44px; height: 44px; font-size: 9px"
+            >
+              <span style="font-size: 6px; opacity: 0.8">लखनऊ</span>
+              <span>पत्र</span>
+            </div>
+            <div>
+              <div class="logo-hindi" style="font-size: 22px">सुजल समय</div>
+              <div class="logo-sub">WEEKLY NEWS NETWORK</div>
+            </div>
+          </div>
+          <p class="footer-tagline">
+            Your trusted weekly newspaper for Lucknow. Bringing you credible,
+            community-driven journalism every week.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Quick Links</div>
+          <div class="footer-links">
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('epaper')">E-Paper</a>
+            <a href="#" onclick="showPage('latest')">News</a>
+            <a href="#" onclick="showPage('upload')">Upload</a>
+            <a href="#" onclick="showPage('highlight')">Highlights</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Categories</div>
+          <div class="footer-links">
+            <a href="#" onclick="filterCategory('Lucknow')">Lucknow</a>
+            <a href="#" onclick="filterCategory('Politics')">Politics</a>
+            <a href="#" onclick="filterCategory('City')">City</a>
+            <a href="#" onclick="filterCategory('Business')">Business</a>
+            <a href="#" onclick="filterCategory('Sports')">Sports</a>
+            <a href="#" onclick="filterCategory('Technology')">Technology</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-contact-item">📍 Hazratganj, Lucknow, UP</div>
+          <div class="footer-contact-item">📞 +91 98765 43210</div>
+          <div class="footer-contact-item">✉️ editor@sujalsamay.com</div>
+          <div
+            class="footer-contact-item"
+            style="margin-top: 16px; color: #666"
+          >
+            Follow us:
+          </div>
+          <div style="display: flex; gap: 12px; margin-top: 6px">
+            <span
+              style="
+                width: 32px;
+                height: 32px;
+                background: #333;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                cursor: pointer;
+              "
+              >📘</span
+            >
+            <span
+              style="
+                width: 32px;
+                height: 32px;
+                background: #333;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                cursor: pointer;
+              "
+              >📷</span
+            >
+            <span
+              style="
+                width: 32px;
+                height: 32px;
+                background: #333;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                cursor: pointer;
+              "
+              >🐦</span
+            >
+            <span
+              style="
+                width: 32px;
+                height: 32px;
+                background: #333;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                cursor: pointer;
+              "
+              >▶️</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 सुजल समय. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Advertise</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ── DATA ──
+      const NEWS = [
+        {
+          id: 1,
+          cat: "Politics",
+          emoji: "🏛️",
+          bg: "#FFF5F5",
+          title:
+            "Weekly governance review highlights new municipal policies for Lucknow",
+          excerpt:
+            "City council passes three landmark bills affecting waste management and public transport.",
+          time: "15 Apr",
+          tags: ["Weekly Feature", "Lucknow"],
+        },
+        {
+          id: 2,
+          cat: "Business",
+          emoji: "💼",
+          bg: "#EBF8FF",
+          title:
+            "Market watch: New openings, trade deals & investment surge in UP capital",
+          excerpt:
+            "Over 120 new businesses registered this week as FDI interest in Lucknow doubles.",
+          time: "14 Apr",
+          tags: ["Weekly Feature", "Economy"],
+        },
+        {
+          id: 3,
+          cat: "City",
+          emoji: "🌆",
+          bg: "#F0FFF4",
+          title:
+            "Gomti Riverfront Phase 3: New parks, cafes & cultural spaces unveiled",
+          excerpt:
+            "The much-awaited expansion adds 4km of walkable waterfront to the city landscape.",
+          time: "14 Apr",
+          tags: ["Infrastructure", "City Life"],
+        },
+        {
+          id: 4,
+          cat: "Education",
+          emoji: "📚",
+          bg: "#FAF5FF",
+          title:
+            "UP Board 2026 results: Record 86% pass rate; girls outperform boys statewide",
+          excerpt:
+            "Lucknow district emerges as top performer with 14 schools achieving 100% pass rate.",
+          time: "13 Apr",
+          tags: ["Education", "UP Board"],
+        },
+        {
+          id: 5,
+          cat: "Sports",
+          emoji: "🏆",
+          bg: "#FFFAF0",
+          title:
+            "LSG Season Preview: Batting lineup revamped for IPL 2026 campaign",
+          excerpt:
+            "Lucknow Super Giants confirm squad with three new international signings.",
+          time: "13 Apr",
+          tags: ["Cricket", "IPL"],
+        },
+        {
+          id: 6,
+          cat: "Technology",
+          emoji: "💻",
+          bg: "#E6FFFA",
+          title:
+            "Lucknow gets 5G smart traffic grid — first UP city to go fully connected",
+          excerpt:
+            "AI-powered signals to cut average commute time by 18 minutes across key corridors.",
+          time: "12 Apr",
+          tags: ["Smart City", "5G"],
+        },
+        {
+          id: 7,
+          cat: "Entertainment",
+          emoji: "🎭",
+          bg: "#FFF5F7",
+          title:
+            "Kathak Mahotsav 2026: 3-day cultural festival draws 40,000 visitors",
+          excerpt:
+            "The annual celebration of classical dance returns with international performers.",
+          time: "12 Apr",
+          tags: ["Culture", "Events"],
+        },
+        {
+          id: 8,
+          cat: "Community",
+          emoji: "🤝",
+          bg: "#F0FFF4",
+          title:
+            "Citizen volunteers plant 10,000 trees along Kanpur Road in single weekend",
+          excerpt:
+            "The Green Lucknow drive sets a new record, inspiring similar campaigns citywide.",
+          time: "11 Apr",
+          tags: ["Environment", "Community"],
+        },
+        {
+          id: 9,
+          cat: "Lucknow",
+          emoji: "🏙️",
+          bg: "#FFF3E2",
+          title:
+            "Heritage walk series spotlights forgotten architecture of old Lucknow",
+          excerpt:
+            "The tourism board launches eight curated routes through nawabi-era neighbourhoods.",
+          time: "11 Apr",
+          tags: ["Heritage", "Tourism"],
+        },
+        {
+          id: 10,
+          cat: "Politics",
+          emoji: "🗳️",
+          bg: "#FFF5F5",
+          title:
+            "State cabinet reshuffle: Three new ministers take charge of key portfolios",
+          excerpt:
+            "The reorganisation signals a renewed focus on urban development and digital services.",
+          time: "10 Apr",
+          tags: ["State Politics", "Cabinet"],
+        },
+        {
+          id: 11,
+          cat: "Business",
+          emoji: "📈",
+          bg: "#EBF8FF",
+          title:
+            "Startup hub opens in Vibhuti Khand, offering co-working & seed funding",
+          excerpt:
+            "The 50,000 sq ft space will host 200 startups with government-backed mentorship.",
+          time: "10 Apr",
+          tags: ["Startups", "Tech"],
+        },
+        {
+          id: 12,
+          cat: "Health",
+          emoji: "🏥",
+          bg: "#FFF0F0",
+          title:
+            "KGMU breakthrough: New treatment protocol for dengue shows 92% success",
+          excerpt:
+            "Researchers publish findings ahead of the annual monsoon dengue season.",
+          time: "9 Apr",
+          tags: ["Health", "Research"],
+        },
+      ];
+
+      function makeCard(n) {
+        return `<div class="news-card">
+    <div class="card-img-placeholder" style="background:linear-gradient(135deg,${n.bg},#fff)">${n.emoji}</div>
+    <div class="card-body">
+      <div class="card-meta"><span class="card-cat">${n.cat}</span><span class="card-time">${n.time}</span></div>
+      <div class="card-title">${n.title}</div>
+      <div class="card-excerpt">${n.excerpt}</div>
+    </div>
+    <div class="card-footer">${n.tags.map((t) => `<span class="card-tag">${t}</span>`).join("")}</div>
+  </div>`;
+      }
+
+      // Populate grids
+      document.getElementById("homeGrid").innerHTML = NEWS.slice(0, 6)
+        .map(makeCard)
+        .join("");
+      document.getElementById("latestGrid").innerHTML =
+        NEWS.map(makeCard).join("");
+      document.getElementById("catGrid").innerHTML =
+        NEWS.map(makeCard).join("");
+
+      // ── NAVIGATION ──
+      function showPage(id) {
+        document
+          .querySelectorAll(".page")
+          .forEach((p) => p.classList.remove("active"));
+        document
+          .querySelectorAll(".nav-item")
+          .forEach((n) => n.classList.remove("active"));
+        document.getElementById("page-" + id).classList.add("active");
+        const nav = document.getElementById("nav-" + id);
+        if (nav) nav.classList.add("active");
+        window.scrollTo(0, 0);
+      }
+
+      // ── LATEST FILTER ──
+      function filterLatest(cat, el) {
+        document
+          .querySelectorAll("#latestPills .cat-pill")
+          .forEach((p) => p.classList.remove("active"));
+        if (el) el.classList.add("active");
+        const filtered =
+          cat === "All"
+            ? NEWS
+            : NEWS.filter((n) => n.cat === cat || n.tags.includes(cat));
+        document.getElementById("latestGrid").innerHTML = filtered.length
+          ? filtered.map(makeCard).join("")
+          : '<p style="color:var(--ink-muted);padding:20px">No stories found in this category this week.</p>';
+      }
+
+      // ── CATEGORIES FILTER ──
+      function filterCategory(cat) {
+        showPage("categories");
+        document.getElementById("catFilterTitle").textContent =
+          cat + " Stories";
+        const filtered = NEWS.filter(
+          (n) => n.cat === cat || n.tags.includes(cat),
+        );
+        document.getElementById("catGrid").innerHTML = filtered.length
+          ? filtered.map(makeCard).join("")
+          : '<p style="color:var(--ink-muted);padding:20px">No stories found for this category.</p>';
+      }
+
+      // ── UPLOAD TYPE SELECT ──
+      function selectUploadType(el) {
+        document
+          .querySelectorAll(".upload-type")
+          .forEach((u) => u.classList.remove("active"));
+        el.classList.add("active");
+      }
+
+      // ── CLOCK ──
+      function updateClock() {
+        const now = new Date();
+        document.getElementById("live-clock").textContent =
+          now.toLocaleTimeString("en-IN", {
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+      }
+      updateClock();
+      setInterval(updateClock, 10000);
+
+      // ── SEARCH ──
+      function handleSearch(e) {
+        if (e.key === "Enter") {
+          const q = e.target.value.toLowerCase().trim();
+          if (!q) return;
+          const results = NEWS.filter(
+            (n) =>
+              n.title.toLowerCase().includes(q) ||
+              n.cat.toLowerCase().includes(q) ||
+              n.tags.some((t) => t.toLowerCase().includes(q)),
+          );
+          showPage("latest");
+          document
+            .querySelectorAll("#latestPills .cat-pill")
+            .forEach((p) => p.classList.remove("active"));
+          document.getElementById("latestGrid").innerHTML = results.length
+            ? results.map(makeCard).join("")
+            : `<p style="color:var(--ink-muted);padding:20px">No results found for "<strong>${q}</strong>". Try a different term.</p>`;
+          e.target.value = "";
+        }
+      }
+
+      // ── LANGUAGE & TRANSLATION ──
+      let currentLanguage = localStorage.getItem("language") || "en";
+
+      const translations = {
+        en: {
+          "Search home...": "Search home...",
+          हिंदी: "हिंदी",
+          Home: "Home",
+          "Latest News": "Latest News",
+          "Categories ▾": "Categories ▾",
+          "E-Paper": "E-Paper",
+          "Highlight Article": "Highlight Article",
+          "Upload Content": "Upload Content",
+          "Contact Us": "Contact Us",
+          "Reading from: Lucknow": "Reading from: Lucknow",
+          "Weekly Newspaper": "Weekly Newspaper",
+          "BREAKING NEWS": "BREAKING NEWS",
+          "🏷 Highlight Article": "🏷 Highlight Article",
+          "Lucknow This Week:": "Lucknow This Week:",
+          "The stories, issues, and": "The stories, issues, and",
+          "progress that matter most": "progress that matter most",
+          "A modern weekly news experience built for readers who want clarity, credibility, and connection to the city they love.":
+            "A modern weekly news experience built for readers who want clarity, credibility, and connection to the city they love.",
+          "📰 Read Latest News": "📰 Read Latest News",
+          "📄 View E-Paper": "📄 View E-Paper",
+          "This Week's Cover Story": "This Week's Cover Story",
+          "View all highlights →": "View all highlights →",
+          "Cover Story · Politics": "Cover Story · Politics",
+          "Lucknow's Infrastructure Revolution: Roads, Metro & Smart Grids Transforming Urban Life":
+            "Lucknow's Infrastructure Revolution: Roads, Metro & Smart Grids Transforming Urban Life",
+          "From the bustling corridors of Hazratganj to the expanding suburban zones, Lucknow is witnessing its most ambitious urban transformation yet. Our cover story this week traces the money, the politics, and the people behind the change.":
+            "From the bustling corridors of Hazratganj to the expanding suburban zones, Lucknow is witnessing its most ambitious urban transformation yet. Our cover story this week traces the money, the politics, and the people behind the change.",
+          "Read Full Story →": "Read Full Story →",
+          "Latest from Lucknow": "Latest from Lucknow",
+          "See all news →": "See all news →",
+          "Weekly News Feed": "Weekly News Feed",
+          "A dedicated page connected to the main website layout for browsing category-based news stories.":
+            "A dedicated page connected to the main website layout for browsing category-based news stories.",
+          All: "All",
+          Lucknow: "Lucknow",
+          Politics: "Politics",
+          City: "City",
+          Business: "Business",
+          Education: "Education",
+          Sports: "Sports",
+          Entertainment: "Entertainment",
+          Technology: "Technology",
+          Community: "Community",
+          "Browse by Category": "Browse by Category",
+          "News Categories": "News Categories",
+          "Explore stories organised by topic. Click any category to read curated weekly coverage.":
+            "Explore stories organised by topic. Click any category to read curated weekly coverage.",
+          "12 stories this week": "12 stories this week",
+          "9 stories this week": "9 stories this week",
+          "8 stories this week": "8 stories this week",
+          Health: "Health",
+        },
+        hi: {
+          "Search home...": "यहाँ खोजें...",
+          हिंदी: "English",
+          Home: "होम",
+          "Latest News": "नवीनतम समाचार",
+          "Categories ▾": "श्रेणियाँ ▾",
+          "E-Paper": "ई-पेपर",
+          "Highlight Article": "हाइलाइट आलेख",
+          "Upload Content": "सामग्री अपलोड करें",
+          "Contact Us": "संपर्क करें",
+          "Reading from: Lucknow": "पढ़ रहे हैं: लखनऊ",
+          "Weekly Newspaper": "साप्ताहिक समाचार पत्र",
+          "BREAKING NEWS": "ताज़ा समाचार",
+          "🏷 Highlight Article": "🏷 हाइलाइट आलेख",
+          "Lucknow This Week:": "इस हफ़्ते लखनऊ:",
+          "The stories, issues, and": "कहानियाँ, मुद्दे, और",
+          "progress that matter most": "प्रगति जो सबसे महत्वपूर्ण है",
+          "A modern weekly news experience built for readers who want clarity, credibility, and connection to the city they love.":
+            "एक आधुनिक साप्ताहिक समाचार अनुभव जो उन पाठकों के लिए बनाया गया है जो स्पष्टता, विश्वासनीयता और अपने प्रिय शहर से जुड़ाव चाहते हैं।",
+          "📰 Read Latest News": "📰 नवीनतम समाचार पढ़ें",
+          "📄 View E-Paper": "📄 ई-पेपर देखें",
+          "This Week's Cover Story": "इस सप्ताह की कवर स्टोरी",
+          "View all highlights →": "सभी हाइलाइट देखें →",
+          "Cover Story · Politics": "कवर स्टोरी · राजनीति",
+          "Lucknow's Infrastructure Revolution: Roads, Metro & Smart Grids Transforming Urban Life":
+            "लखनऊ की बुनियादी ढांचे में क्रांति: सड़कें, मेट्रो और स्मार्ट ग्रिड शहरी जीवन को बदल रहे हैं",
+          "From the bustling corridors of Hazratganj to the expanding suburban zones, Lucknow is witnessing its most ambitious urban transformation yet. Our cover story this week traces the money, the politics, and the people behind the change.":
+            "हजरतगंज की व्यस्त गलियों से लेकर विस्तारित उपनगरीय क्षेत्रों तक, लखनऊ अपने सबसे महत्वाकांक्षी शहरी रूपांतरण को देख रहा है। हमारी इस हफ़्ते की कवर स्टोरी परिवर्तन के पीछे की धन, राजनीति और लोगों का पता लगाती है।",
+          "Read Full Story →": "संपूर्ण कहानी पढ़ें →",
+          "Latest from Lucknow": "लखनऊ से नवीनतम",
+          "See all news →": "सभी समाचार देखें →",
+          "Weekly News Feed": "साप्ताहिक समाचार फीड",
+          "A dedicated page connected to the main website layout for browsing category-based news stories.":
+            "मुख्य वेबसाइट लेआउट से जुड़ा एक समर्पित पृष्ठ जो श्रेणी-आधारित समाचार कहानियों को ब्राउज़ करने के लिए है।",
+          All: "सभी",
+          Lucknow: "लखनऊ",
+          Politics: "राजनीति",
+          City: "शहर",
+          Business: "व्यापार",
+          Education: "शिक्षा",
+          Sports: "खेल",
+          Entertainment: "मनोरंजन",
+          Technology: "तकनीक",
+          Community: "समुदाय",
+          "Browse by Category": "श्रेणी द्वारा ब्राउज़ करें",
+          "News Categories": "समाचार श्रेणियाँ",
+          "Explore stories organised by topic. Click any category to read curated weekly coverage.":
+            "विषय के अनुसार आयोजित कहानियों का अन्वेषण करें। साप्ताहिक कवरेज पढ़ने के लिए किसी भी श्रेणी पर क्लिक करें।",
+          "12 stories this week": "इस हफ़्ते 12 कहानियाँ",
+          "9 stories this week": "इस हफ़्ते 9 कहानियाँ",
+          "8 stories this week": "इस हफ़्ते 8 कहानियाँ",
+          Health: "स्वास्थ्य",
+        },
+      };
+
+      function toggleLanguage() {
+        currentLanguage = currentLanguage === "en" ? "hi" : "en";
+        localStorage.setItem("language", currentLanguage);
+        applyTranslations();
+      }
+
+      function applyTranslations() {
+        const trans = translations[currentLanguage];
+        document.querySelectorAll("[data-translate]").forEach((el) => {
+          const key = el.getAttribute("data-translate");
+          if (trans[key]) {
+            el.textContent = trans[key];
+          }
+        });
+
+        // Update button text
+        const btn = document.querySelector(".hindi-btn");
+        if (btn) {
+          btn.textContent = currentLanguage === "hi" ? "English" : "हिंदी";
+        }
+
+        // Update input placeholder
+        const search = document.getElementById("searchInput");
+        if (search) {
+          search.placeholder = trans["Search home..."] || "Search home...";
+        }
+
+        // Update HTML lang attribute
+        document.documentElement.lang = currentLanguage;
+
+        // If language is Hindi, add special styling
+        if (currentLanguage === "hi") {
+          document.body.style.fontFamily = "'Noto Sans Devanagari', sans-serif";
+        } else {
+          document.body.style.fontFamily = "'DM Sans', sans-serif";
+        }
+      }
+
+      // Apply saved language on page load
+      applyTranslations();
+    </script>
+  </body>
+</html>
